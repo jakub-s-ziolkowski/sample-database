@@ -1,0 +1,11 @@
+Wynamagania minimalne:
+
+1. Baza powinna zawierać przynajmniej 10 tabel.
+2. Każda tabela powinna być w relacji przynajmniej z jedną z pozostałych tabel.
+3. Każdy atrybut powinien posiadać przynajmniej jeden z więzów integralności.
+4. Każda tabela powinna mieć minimum 10 rekordów składowych.
+5. Do schematu przygotowane są zapytania, które mają być według przewidywań projektu bazy najczęściej wykonywane:
+    - minimum 10 zapytań wybierających,
+    - minimum 10 selekcji,
+    - minimum 10 zapytań łączących dwie tabele,
+    - minimum 10 zapytań łączących trzy tabele.
