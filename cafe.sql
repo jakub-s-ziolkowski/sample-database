@@ -4,8 +4,8 @@ USE `cafe`;
 
 DROP TABLE IF EXISTS `Employee`;
 CREATE TABLE `Employee` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `pesel number` int (11) UNIQUE,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `pesel number` int UNIQUE,
   `name` varchar (25) NOT NULL,
   `surname` varchar (25) NOT NULL,
   `sex` enum ('M', 'F') NOT NULL,
@@ -18,18 +18,18 @@ CREATE TABLE `Employee` (
 
 DROP TABLE IF EXISTS `Employment`;
 CREATE TABLE `Employment` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `job` enum ('waiter', 'cook', 'barista') NOT NULL,
   `hourly wage` decimal (5, 2) NOT NULL,
   `date of employment` date NOT NULL,
-  `estate id` int (9) NOT NULL
+  `estate id` int NOT NULL
 );
 
 DROP TABLE IF EXISTS `Estate`;
 CREATE TABLE `Estate` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `name` varchar (35) NOT NULL,
-  `manager` int (9) NOT NULL UNIQUE,
+  `manager` int NOT NULL UNIQUE,
   `city` varchar (35) NOT NULL,
   `street address` varchar (35) NOT NULL,
   `apartment number` varchar (5) NOT NULL,
@@ -38,31 +38,31 @@ CREATE TABLE `Estate` (
 
 DROP TABLE IF EXISTS `Reservation`;
 CREATE TABLE `Reservation` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `reservation start` timestamp NOT NULL,
   `reservation finished` boolean NOT NULL DEFAULT false,
-  `estate id` int (9) NOT NULL,
-  `table id` int (9) NOT NULL
+  `estate id` int NOT NULL,
+  `table id` int NOT NULL
 );
 
 DROP TABLE IF EXISTS `Table`;
 CREATE TABLE `Table` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `spots number` int (9) NOT NULL,
-  `estate id` int (9) NOT NULL
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `spots number` int NOT NULL,
+  `estate id` int NOT NULL
 );
 
 DROP TABLE IF EXISTS `Settlement`;
 CREATE TABLE `Settlement` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `employment id` int (9) NOT NULL,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `employment id` int NOT NULL,
   `shift start` timestamp NOT NULL,
   `shift end` timestamp NOT NULL
 );
 
 DROP TABLE IF EXISTS `Bill`;
 CREATE TABLE `Bill` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `purchase type` enum ('at location', 'takeaway') NOT NULL DEFAULT "at location",
   `payment method` enum ('cash', 'card') NOT NULL,
   `purchase time` timestamp NOT NULL
@@ -70,15 +70,15 @@ CREATE TABLE `Bill` (
 
 DROP TABLE IF EXISTS `Bill order`;
 CREATE TABLE `Bill order` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `bill id` int (9) NOT NULL,
-  `menu item id` int (9) NOT NULL,
-  `quantity` int (9) NOT NULL
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `bill id` int NOT NULL,
+  `menu item id` int NOT NULL,
+  `quantity` int NOT NULL
 );
 
 DROP TABLE IF EXISTS `Menu`;
 CREATE TABLE `Menu` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `name` varchar (25) NOT NULL,
   `category` enum ('drink', 'appetizer', 'dessert') NOT NULL,
   `diet type` enum ('vegan', 'keto') NOT NULL,
@@ -88,14 +88,14 @@ CREATE TABLE `Menu` (
 
 DROP TABLE IF EXISTS `Ingredients list`;
 CREATE TABLE `Ingredients list` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `menu item id` int (9) NOT NULL,
-  `ingredient id` int (9) NOT NULL
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `menu item id` int NOT NULL,
+  `ingredient id` int NOT NULL
 );
 
 DROP TABLE IF EXISTS `Ingredient`;
 CREATE TABLE `Ingredient` (
-  `id` int (9) PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
+  `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `name` varchar (25) NOT NULL
 );
 
