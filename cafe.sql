@@ -5,13 +5,13 @@ USE `cafe`;
 DROP TABLE IF EXISTS `Employee`;
 CREATE TABLE `Employee` (
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `pesel number` int UNIQUE,
+  `pesel number` varchar (11) UNIQUE,
   `name` varchar (25) NOT NULL,
   `surname` varchar (25) NOT NULL,
   `sex` enum ('M', 'F') NOT NULL,
   `birth date` date NOT NULL,
   `city of residence` varchar (35) NOT NULL,
-  `street address` varchar (35) NOT NULL,
+  `street address` varchar (40) NOT NULL,
   `apartment number` varchar (5) NOT NULL,
   `phone number` varchar (12) NOT NULL
 );
@@ -19,7 +19,7 @@ CREATE TABLE `Employee` (
 DROP TABLE IF EXISTS `Employment`;
 CREATE TABLE `Employment` (
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `job` enum ('waiter', 'cook', 'barista') NOT NULL,
+  `job` enum ('manager', 'cook', 'waiter') NOT NULL,
   `hourly wage` decimal (5, 2) NOT NULL,
   `date of employment` date NOT NULL,
   `estate id` int NOT NULL
@@ -28,11 +28,10 @@ CREATE TABLE `Employment` (
 DROP TABLE IF EXISTS `Estate`;
 CREATE TABLE `Estate` (
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
-  `name` varchar (35) NOT NULL,
   `manager` int NOT NULL UNIQUE,
   `city` varchar (35) NOT NULL,
-  `street address` varchar (35) NOT NULL,
-  `apartment number` varchar (5) NOT NULL,
+  `street address` varchar (40) NOT NULL,
+  `postcode` varchar (6) NOT NULL,
   `phone number` varchar (12) NOT NULL
 );
 
@@ -41,7 +40,6 @@ CREATE TABLE `Reservation` (
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `reservation start` timestamp NOT NULL,
   `reservation finished` boolean NOT NULL DEFAULT false,
-  `estate id` int NOT NULL,
   `table id` int NOT NULL
 );
 
@@ -107,7 +105,6 @@ ALTER TABLE `Estate`
 	ADD FOREIGN KEY (`manager`) REFERENCES `Employee` (`id`);
 
 ALTER TABLE `Reservation`
-	ADD FOREIGN KEY (`estate id`) REFERENCES `Estate` (`id`),
 	ADD FOREIGN KEY (`table id`) REFERENCES `Table` (`id`);
 
 ALTER TABLE `Table`
