@@ -79,7 +79,6 @@ CREATE TABLE `Menu` (
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `name` varchar (25) NOT NULL,
   `category` enum ('drink', 'appetizer', 'dessert') NOT NULL,
-  `diet type` enum ('vegan', 'keto') NOT NULL,
   `price` decimal (5, 2) NOT NULL,
   `available` boolean NOT NULL DEFAULT true
 );
@@ -328,3 +327,49 @@ INSERT INTO `Reservation` (`reservation start`, `reservation finished`, `table i
 		('2020-06-04 11:30:00', true, 1),
 		('2020-06-12 14:00:00', true, 9),
 		('2020-06-03 10:30:00', true, 2);
+
+INSERT INTO `Menu` (`name`, `category`, `price`, `available`)
+	VALUES
+		('Latte', 1, 11.40),
+		('Americano', 1, 11.40),
+		('Cappuccino', 1, 14.40),
+		('Frappe', 1, 14.40),
+		('Espresso', 1, 14.40),
+		('Sałatka grecka', 2, 24.20),
+		('Sałatka nicejska', 2, 24.20),
+		('Sałatka Cezar', 2, 26.20),
+		('Sałatka Caprese', 2, 26.20),
+		('Sałatka Coleslaw', 2, 22.20),
+		('Tiramisu', 3, 16.90),
+		('Panna Cotta', 3, 16.90),
+		('Crème brûlée', 3, 22.90),
+		('Poire belle Hélène', 3, 24.90),
+		('Pastéis de Belém', 3, 24.90);
+
+INSERT INTO `Ingredient` (`name`)
+	VALUES
+		('nabiał'),
+		('gluten'),
+        ('mięso');
+
+INSERT INTO `Ingredients list` (`menu item id`, `ingredient id`)
+	VALUES
+		(1, 1),
+		(2, 1),
+		(3, 1),
+		(4, 1),
+		(6, 1),
+		(7, 1),
+		(7, 2),
+		(8, 1),
+		(8, 2),
+		(8, 3),
+		(9, 1),
+		(10, 1),
+		(10, 2),
+		(11, 1),
+		(11, 2),
+		(12, 1),
+		(13, 1),
+		(14, 2),
+		(15, 2);
