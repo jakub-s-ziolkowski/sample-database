@@ -328,7 +328,7 @@ INSERT INTO `Reservation` (`reservation start`, `reservation finished`, `table i
 		('2020-06-12 14:00:00', true, 9),
 		('2020-06-03 10:30:00', true, 2);
 
-INSERT INTO `Menu` (`name`, `category`, `price`, `available`)
+INSERT INTO `Menu` (`name`, `category`, `price`)
 	VALUES
 		('Latte', 1, 11.40),
 		('Americano', 1, 11.40),
@@ -373,3 +373,50 @@ INSERT INTO `Ingredients list` (`menu item id`, `ingredient id`)
 		(13, 1),
 		(14, 2),
 		(15, 2);
+
+INSERT INTO `Bill` (`purchase type`, `payment method`, `purchase time`)
+	VALUES
+        ('at location', 'card', '2020-05-04 12:30:16'),
+        ('at location', 'cash', '2020-05-04 12:54:18'),
+        ('at location', 'cash', '2020-05-05 10:57:45'),
+        ('at location', 'card', '2020-05-08 12:02:10'),
+        ('takeaway', 'cash', '2020-05-12 10:39:18'),
+        ('at location', 'card', '2020-06-02 15:25:03'),
+        ('at location', 'card', '2020-06-03 16:17:55'),
+        ('at location', 'card', '2020-06-03 17:08:21'),
+        ('at location', 'cash', '2020-06-04 14:46:10'),
+        ('takeaway', 'card', '2020-06-05 11:45:03'),
+        ('at location', 'cash', '2020-06-05 15:23:58'),
+        ('takeaway', 'card', '2020-06-06 15:38:10'),
+        ('takeaway', 'card', '2020-06-08 11:38:45'),
+        ('at location', 'card', '2020-06-12 11:44:52'),
+        ('at location', 'cash', '2020-06-13 17:17:53');
+
+INSERT INTO `Bill order` (`bill id`, `menu item id`, `quantity`)
+	VALUES
+        (1, 5, 1),
+		(1, 6, 2),
+		(1, 8, 2),
+		(1, 11, 2),
+		(1, 13, 1),
+		(2, 2, 1),
+		(3, 4, 1),
+		(3, 8, 1),
+		(3, 10, 3),
+		(4, 3, 2),
+		(4, 4, 2),
+		(4, 7, 1),
+		(5, 10, 1),
+		(6, 6, 1),
+		(6, 7, 1),
+		(7, 4, 1),
+		(7, 6, 1),
+		(7, 11, 1),
+		(7, 12, 1),
+		(8, 2, 2),
+		(8, 10, 2),
+		(8, 12, 1),
+		(9, 3, 2),
+		(10, 4, 1),
+		(10, 6, 3);
+    
