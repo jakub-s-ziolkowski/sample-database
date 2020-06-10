@@ -297,36 +297,36 @@ INSERT INTO `Table` (`spots number`, `estate id`)
 
 INSERT INTO `Reservation` (`reservation start`, `reservation finished`, `table id`)
 	VALUES
-		('2020-06-04 13:00:00', true, 3),
+		('2020-06-04 13:00:00', true, 2),
 		('2020-06-12 12:00:00', true, 1),
-		('2020-06-11 10:00:00', true, 8),
-		('2020-05-06 11:30:00', true, 5),
-		('2020-05-12 13:00:00', true, 2),
-		('2020-05-11 12:30:00', true, 4),
-		('2020-05-04 15:00:00', true, 6),
-		('2020-05-03 10:00:00', true, 2),
-		('2020-05-08 12:00:00', true, 4),
-		('2020-05-04 10:30:00', true, 2),
-		('2020-05-13 15:00:00', true, 7),
-		('2020-06-08 11:30:00', true, 2),
-		('2020-06-05 12:00:00', true, 4),
-		('2020-05-13 10:30:00', true, 10),
-		('2020-06-07 13:30:00', true, 10),
-		('2020-06-13 10:00:00', true, 2),
-		('2020-05-07 13:00:00', true, 4),
-		('2020-06-07 11:00:00', true, 4),
-		('2020-06-08 14:00:00', true, 1),
-		('2020-06-12 15:00:00', true, 10),
-		('2020-06-07 13:30:00', true, 3),
-		('2020-05-11 14:00:00', true, 5),
-		('2020-06-07 11:00:00', true, 3),
-		('2020-06-13 12:30:00', true, 1),
-		('2020-05-04 15:00:00', true, 7),
+		('2020-06-11 10:00:00', true, 15),
+		('2020-05-06 11:30:00', true, 13),
+		('2020-05-12 13:00:00', true, 30),
+		('2020-05-11 12:30:00', true, 29),
+		('2020-05-04 15:00:00', true, 8),
+		('2020-05-03 10:00:00', true, 6),
+		('2020-05-08 12:00:00', true, 28),
+		('2020-05-04 10:30:00', true, 10),
+		('2020-05-13 15:00:00', true, 22),
+		('2020-06-08 11:30:00', true, 5),
+		('2020-06-05 12:00:00', true, 30),
+		('2020-05-13 10:30:00', true, 17),
+		('2020-06-07 13:30:00', true, 29),
+		('2020-06-13 10:00:00', true, 10),
+		('2020-05-07 13:00:00', true, 23),
+		('2020-06-07 11:00:00', true, 11),
+		('2020-06-08 14:00:00', true, 21),
+		('2020-06-12 15:00:00', true, 5),
+		('2020-06-07 13:30:00', true, 22),
+		('2020-05-11 14:00:00', true, 11),
+		('2020-06-07 11:00:00', true, 16),
+		('2020-06-13 12:30:00', true, 7),
+		('2020-05-04 15:00:00', true, 8),
 		('2020-05-01 13:00:00', true, 6),
-		('2020-06-07 10:00:00', true, 1),
-		('2020-06-04 11:30:00', true, 1),
-		('2020-06-12 14:00:00', true, 9),
-		('2020-06-03 10:30:00', true, 2);
+		('2020-06-07 10:00:00', true, 12),
+		('2020-06-04 11:30:00', true, 13),
+		('2020-06-12 14:00:00', true, 3),
+		('2020-06-03 10:30:00', true, 19);
 
 INSERT INTO `Menu` (`name`, `category`, `price`)
 	VALUES
@@ -394,29 +394,222 @@ INSERT INTO `Bill` (`purchase type`, `payment method`, `purchase time`)
 
 INSERT INTO `Bill order` (`bill id`, `menu item id`, `quantity`)
 	VALUES
-        (1, 5, 1),
-		(1, 6, 2),
-		(1, 8, 2),
-		(1, 11, 2),
-		(1, 13, 1),
-		(2, 2, 1),
-		(3, 4, 1),
-		(3, 8, 1),
-		(3, 10, 3),
-		(4, 3, 2),
-		(4, 4, 2),
-		(4, 7, 1),
-		(5, 10, 1),
-		(6, 6, 1),
-		(6, 7, 1),
-		(7, 4, 1),
-		(7, 6, 1),
-		(7, 11, 1),
-		(7, 12, 1),
-		(8, 2, 2),
-		(8, 10, 2),
-		(8, 12, 1),
-		(9, 3, 2),
-		(10, 4, 1),
-		(10, 6, 3);
-    
+		(8, 13, 1),
+		(8, 8, 1),
+		(1, 14, 2),
+		(8, 5, 1),
+		(6, 8, 3),
+		(14, 14, 2),
+		(8, 1, 1),
+		(1, 15, 2),
+		(11, 5, 1),
+		(14, 1, 1),
+		(15, 2, 1),
+		(3, 2, 1),
+		(8, 15, 1),
+		(5, 1, 2),
+		(6, 5, 2),
+		(11, 12, 1),
+		(10, 6, 2),
+		(6, 7, 2),
+		(11, 8, 1),
+		(2, 6, 3),
+		(2, 11, 2),
+		(11, 7, 2),
+		(13, 9, 1),
+		(13, 14, 1),
+		(12, 4, 1);
+
+# Zapytania łączące dwie tabele
+
+SELECT # Zwraca wartości rachunków
+	SUM(`Menu`.`price` * `Bill order`.`quantity`) AS 'price'
+		FROM (`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+					GROUP BY `Bill order`.`bill id`
+						ORDER BY SUM(`Menu`.`price` * `Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość zamówień danych napojów
+	`Menu`.`name`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM (`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				WHERE `Menu`.`category` = 'drink'
+					GROUP BY `Menu`.`name`
+						ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość zamówień danych przystawek
+	`Menu`.`name`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM (`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				WHERE `Menu`.`category` = 'appetizer'
+					GROUP BY `Menu`.`name`
+						ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość zamówień danych deserów
+	`Menu`.`name`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM (`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				WHERE `Menu`.`category` = 'dessert'
+					GROUP BY `Menu`.`name`
+						ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość zamówień z zeszłego miesiąca ze względu na typ zamówienia
+	`Bill`.`purchase type`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM (`Bill order`
+			INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+				WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Bill`.`purchase type`
+						ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość zamówień z zeszłego miesiąca ze względu na metodę płatności
+	`Bill`.`payment method`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM (`Bill order`
+			INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+				WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Bill`.`payment method`
+						ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca wartość wynagrodzeń należnych za poprzedni miesiąc ze względu na wykonywany zawód
+    `Employment`.`job`,
+	ROUND(SUM((TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) * `Employment`.`hourly wage`), 2) as 'payment'
+		FROM (`Employment`
+			INNER JOIN `Settlement` ON `Employment`.`id` = `Settlement`.`employment id`)
+				WHERE MONTH(`Settlement`.`shift start`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Employment`.`job`
+						ORDER BY ROUND(SUM((TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) * `Employment`.`hourly wage`), 2) DESC;
+
+SELECT # Zwraca ilość godzin przepracowanych w poprzednim miesiącu ze względu na wykonywany zawód
+    `Employment`.`job`,
+	SUM(TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600)  AS `hours`
+		FROM (`Employment`
+			INNER JOIN `Settlement` ON `Employment`.`id` = `Settlement`.`employment id`)
+				WHERE MONTH(`Settlement`.`shift start`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Employment`.`job`
+						ORDER BY SUM(TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) DESC;
+
+SELECT # Zwraca liczbę rezerwacji z poprzedniego miesiąca ze względu na ilość miejsc
+	`Table`.`spots number`,
+    COUNT(`Reservation`.`id`) AS 'quantity'
+		FROM (`Table`
+			INNER JOIN `Reservation` ON `Table`.`id` = `Reservation`.`table id`)
+				WHERE MONTH(`Reservation`.`reservation start`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Table`.`spots number`
+						ORDER BY COUNT(`Reservation`.`id`) DESC;
+
+SELECT # Zwraca liczbę rezerwacji z poprzedniego miesiąca ze względu na lokal
+	`Table`.`estate id`,
+    COUNT(`Reservation`.`id`) AS 'quantity'
+		FROM (`Table`
+			INNER JOIN `Reservation` ON `Table`.`id` = `Reservation`.`table id`)
+				WHERE MONTH(`Reservation`.`reservation start`) = MONTH(CURRENT_DATE()) - 1
+					GROUP BY `Table`.`estate id`
+						ORDER BY COUNT(`Reservation`.`id`) DESC;
+
+# Zapytania łączące trzy tabele
+
+SELECT # Zwraca wartości rachunków z zeszłego miesiąca
+	SUM(`Menu`.`price` * `Bill order`.`quantity`) AS 'price'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Bill`.`id`
+							ORDER BY SUM(`Menu`.`price` * `Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca wartości rachunków z zeszłego miesiąca ze względu na typ zamówienia
+    `Bill`.`purchase type`,
+	SUM(`Menu`.`price` * `Bill order`.`quantity`) AS 'price'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Bill`.`purchase type`
+							ORDER BY SUM(`Menu`.`price` * `Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca wartości rachunków z zeszłego miesiąca ze względu na metodę płatności
+    `Bill`.`payment method`,
+	SUM(`Menu`.`price` * `Bill order`.`quantity`) AS 'price'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Bill`.`payment method`
+							ORDER BY SUM(`Menu`.`price` * `Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca wartość zamówień z zeszłego miesiąca ze względu na ich kategorię
+	`Menu`.`category`,
+    SUM(`Menu`.`price`) as 'price'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Menu`.`category`
+							ORDER BY SUM(`Menu`.`price`) DESC;
+
+SELECT # Zwraca ilości zamówień z zeszłego miesiąca ze względu na ich kategorię
+	`Menu`.`category`,
+    SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Menu`.`category`
+							ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość danych napojów zamówionych w poprzednim miesiącu
+	`Menu`.`name`,
+	SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE `Menu`.`category` = 'drink' AND MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Menu`.`name`
+							ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość danych przystawek zamówionych w poprzednim miesiącu
+	`Menu`.`name`,
+	SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE `Menu`.`category` = 'appetizer' AND MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Menu`.`name`
+							ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca ilość danych deserów zamówionych w poprzednim miesiącu
+	`Menu`.`name`,
+	SUM(`Bill order`.`quantity`) AS 'quantity'
+		FROM ((`Bill order`
+			INNER JOIN `Menu` ON `Bill order`.`menu item id` = `Menu`.`id`)
+				INNER JOIN `Bill` ON `Bill order`.`bill id` = `Bill`.`id`)
+					WHERE `Menu`.`category` = 'dessert' AND MONTH(`Bill`.`purchase time`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Menu`.`name`
+							ORDER BY SUM(`Bill order`.`quantity`) DESC;
+
+SELECT # Zwraca dane osobowe, wykonywany zawód oraz ilość godzin przepracowanych w zeszłym miesiącu
+	CONCAT(`Employee`.`name`, ' ', `Employee`.`surname`) AS 'employee',
+    `Employment`.`job`,
+	SUM(TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) AS `hours`
+		FROM ((`Employment`
+			INNER JOIN `Settlement` ON `Employment`.`id` = `Settlement`.`employment id`)
+				INNER JOIN `Employee` ON `Employment`.`id` = `Employee`.`id`)
+					WHERE MONTH(`Settlement`.`shift start`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Employee`.`id`
+							ORDER BY SUM(TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) DESC;
+
+SELECT # Zwraca dane osobowe, stawkę godzinową, ilość godzin przepracowanych w zeszłym miesiącu oraz wynagrodzenie należne za poprzedni miesiąc
+	CONCAT(`Employee`.`name`, ' ', `Employee`.`surname`) AS 'employee',
+    `Employment`.`hourly wage`,
+	SUM(TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) AS `hours`,
+	ROUND(SUM((TIMESTAMPDIFF(SECOND, `Settlement`.`shift start`, `Settlement`.`shift end`) / 3600) * `Employment`.`hourly wage`), 2) as 'payment'
+		FROM ((`Employment`
+			INNER JOIN `Settlement` ON `Employment`.`id` = `Settlement`.`employment id`)
+				INNER JOIN `Employee` ON `Employment`.`id` = `Employee`.`id`)
+					WHERE MONTH(`Settlement`.`shift start`) = MONTH(CURRENT_DATE()) - 1
+						GROUP BY `Employee`.`id`
+							ORDER BY `Employment`.`job`;
