@@ -420,6 +420,125 @@ INSERT INTO `Bill order` (`bill id`, `menu item id`, `quantity`)
 		(13, 14, 1),
 		(12, 4, 1);
 
+# Projekcje
+
+SELECT # Zwraca czas rezerwacji oraz ich stan
+	`reservation start`,
+    `reservation finished`
+		FROM `Reservation`;
+
+SELECT # Zwraca podstawowe dane pozycji z menu wraz z jej dostępnością
+	`name`,
+    `category`,
+    `price`,
+    `available`
+		FROM `Menu`;
+
+SELECT # Zwraca dane osonowe i dane kontaktowe pracowników
+	CONCAT(`name`, ' ', `surname`) AS 'employee',
+    `city of residence`,
+    `street address`,
+    `apartment number`,
+    `phone number`
+		FROM `Employee`;
+
+SELECT # Zwraca dane kontaktowe poszczególnych lokali
+	`city`,
+    `street address`,
+    `postcode`,
+    `phone number`
+		FROM `Estate`;
+
+SELECT # Zwraca średnią cenę pozycji z menu względem jej kategorii
+	`category`,
+	ROUND(AVG(`price`), 2)
+		FROM `Menu`
+			GROUP BY `category`
+				ORDER BY `category`;
+
+SELECT # Zwraca średnią stawkę godzinową w zależności od wykonywanego zawodu
+	`job`,
+    ROUND(AVG(`hourly wage`), 2) AS 'hourly wage'
+		FROM `Employment`
+			GROUP BY `job`
+				ORDER BY `job`;
+
+SELECT # Zwraca ilość stolików ze względu na ilość miejsc
+	`spots number`,
+    COUNT(id) AS 'tables number'
+		FROM `Table`
+			GROUP BY `spots number`;
+
+SELECT # Zwraca ilość zamówień ze względu na ich typ
+	`purchase type`,
+    COUNT(`id`) AS 'quantity'
+		FROM `Bill`
+			GROUP BY `purchase type`
+				ORDER BY `purchase type`;
+
+SELECT # Zwraca ilość zamówień ze względu na typ płatności
+	`payment method`,
+    COUNT(`id`) AS 'quantity'
+		FROM `Bill`
+			GROUP BY `payment method`
+				ORDER BY `payment method`;
+
+SELECT # Zwraca średnią ilość pozycji z menu na jedno zamówienie
+    ROUND(SUM(`quantity`) / COUNT(DISTINCT `bill id`), 2) AS 'orders'
+		FROM `Bill order`;
+
+# Selekcje
+
+SELECT # Zwraca rachunki zamówień na miejscu
+	*
+		FROM `Bill`
+			WHERE `purchase type` = 'at location';
+
+SELECT # Zwraca rachunki zamówień na wynos
+	*
+		FROM `Bill`
+			WHERE `purchase type` = 'takeaway';
+
+SELECT # Zwraca rachunki zamówień opłaconych kartą
+	*
+		FROM `Bill`
+			WHERE `payment method` = 'card';
+
+SELECT # Zwraca rachunki zamówień opłaconych gotówką
+	*
+		FROM `Bill`
+			WHERE `payment method` = 'cash';
+
+SELECT # Zwraca dostępne pozycje z menu
+	*
+		FROM `Menu`
+			WHERE `available` = true;
+
+SELECT # Zwraca niedostępne pozycje z menu
+	*
+		FROM `Menu`
+			WHERE `available` = false;
+
+SELECT # Zwraca napoje z menu
+	*
+		FROM `Menu`
+			WHERE `category` = 'drink';
+
+SELECT # Zwraca przystawki z menu
+	*
+		FROM `Menu`
+			WHERE `category` = 'appetizer';
+
+SELECT # Zwraca desery z menu
+	*
+		FROM `Menu`
+			WHERE `category` = 'dessert';
+
+SELECT # Zwraca niezakończone rezerwacje
+	*
+		FROM `Reservation`
+			WHERE `reservation finished` = false;
+
 # Zapytania łączące dwie tabele
 
 SELECT # Zwraca wartości rachunków
