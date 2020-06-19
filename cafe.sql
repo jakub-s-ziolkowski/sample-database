@@ -508,7 +508,7 @@ SELECT # Zwraca podstawowe dane pozycji z menu wraz z jej dostępnością
     `available`
 		FROM `Menu`;
 
-SELECT # Zwraca dane osonowe i dane kontaktowe pracowników
+SELECT # Zwraca dane osobowe i dane kontaktowe pracowników
 	CONCAT(`name`, ' ', `surname`) AS 'employee',
     `city of residence`,
     `street address`,
@@ -525,7 +525,7 @@ SELECT # Zwraca dane kontaktowe poszczególnych lokali
 
 SELECT # Zwraca średnią cenę pozycji z menu względem jej kategorii
 	`category`,
-	ROUND(AVG(`price`), 2)
+	ROUND(AVG(`price`), 2) AS 'price'
 		FROM `Menu`
 			GROUP BY `category`
 				ORDER BY `category`;
