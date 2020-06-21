@@ -1,11 +1,19 @@
-Wynamagania minimalne:
+Projekt został przedstawiony do oceny 3.
 
-1. Baza powinna zawierać przynajmniej 10 tabel.
-2. Każda tabela powinna być w relacji przynajmniej z jedną z pozostałych tabel.
-3. Każdy atrybut powinien posiadać przynajmniej jeden z więzów integralności.
-4. Każda tabela powinna mieć minimum 10 rekordów składowych.
-5. Do schematu przygotowane są zapytania, które mają być według przewidywań projektu bazy najczęściej wykonywane:
+Spełnione wymagania:
+
+1. dokument motywujący i opisujący propozycję modelu,
+2. diagram relacji,
+3. dokumentacja danych,
+4. skrypt SQL generujący schemat bazy zgodny z diagramem ER wraz z komentarzami,
+5. baza ma przynajmniej 10 tabel,
+6. każda tabela jest w relacji przynajmniej z jedną z pozostałych tabel,
+7. każdy atrybut posiada przynajmniej jeden z więzów integralności,
+8. każda tabela ma minimum 10 rekordów składowych,
+9. do schematu przygotowane są zapytania, które mają być według przewidywań projektu bazy najczęściej wykonywane:
     - minimum 10 zapytań wybierających,
     - minimum 10 selekcji,
     - minimum 10 zapytań łączących dwie tabele,
-    - minimum 10 zapytań łączących trzy tabele.
+    - minimum 10 zapytań łączących trzy tabele,
+10. prezentacja bazy,
+11. przewidzenie konkretnych przypadków konieczności zmiany schematu

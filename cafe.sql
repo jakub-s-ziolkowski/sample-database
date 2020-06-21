@@ -1,11 +1,11 @@
-DROP DATABASE IF EXISTS `cafe`; # Usunięcie istniejącej bazy danych
+DROP DATABASE IF EXISTS `cafe`; # Usunięcie potencjalnie istniejącej bazy danych
 CREATE DATABASE `cafe`; # Utworzenie nowej bazy danych
 
 USE `cafe`; # Wybranie interesującej nas bazy, umożliwi to wykonywanie na niej wszelkich operacji
 
 # Tworzenie tabel
 
-DROP TABLE IF EXISTS `Employee`; # Usunięcie istniejącej tabeli
+DROP TABLE IF EXISTS `Employee`; # Usunięcie potencjalnie istniejącej tabeli
 CREATE TABLE `Employee` ( # Utworzenie nowej tabeli
   `id` int PRIMARY KEY NOT NULL UNIQUE AUTO_INCREMENT,
   `pesel number` varchar (11) UNIQUE,
@@ -101,7 +101,7 @@ CREATE TABLE `Ingredient` (
 
 # Tworzenie relacji
 
-ALTER TABLE
+ALTER TABLE # Modyfikacja tabeli poprzez nawiązanie relacji
 	`Employment`
 		ADD FOREIGN KEY (`id`)
 			REFERENCES `Employee` (`id`),
@@ -144,7 +144,7 @@ ALTER TABLE
 
 # Dodawanie rekordów
 
-INSERT INTO
+INSERT INTO # Dodanie rekordów do tabeli z wyszczególnionymi polami
 	`Employee` (`pesel number`, `name`, `surname`, `sex`, `birth date`, `city of residence`, `street address`, `apartment number`, `phone number`)
 		VALUES
 			(99110139100, 'Zofia', 'Michalik', 'F', '1999-11-01', 'Kraków', 'Gołaśka 10', '23', '+48789070572'),
@@ -477,7 +477,7 @@ INSERT INTO
 
 # Uaktualnienia danych
 
-UPDATE # Określa niedostępność trzeciej pozycji z menu
+UPDATE # Modyfikacja rekordów tabeli, określa niedostępność trzeciej pozycji z menu
 	`Menu`
 		SET `available` = false
 			WHERE `id` = 3;
